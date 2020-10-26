@@ -1,0 +1,45 @@
+<%- include('partials/header'); %>
+
+
+<div>
+    <h1>Stats of the database</h1>
+</div>
+
+<div class="container">
+    <% if (typeof message!= "undefined" && message) { %>
+        <h4><%=message%></h4>
+       <% } %>  
+</div>
+
+<div class="details">
+    <form action="/auth/users" method="POST">
+        <button type="submit">Details of Users Table</button>
+    </form> 
+</div>
+
+<div class="users">
+    <% if (typeof results!= "undefined" && results) { %>
+        <h4>Username is listed below</h4>
+        <% results.forEach(userObj => { %>
+            <p><%= userObj.name %> </p>
+        <% }) %>
+       <% } %>  
+</div>
+
+<div class="details">
+    <form action="/auth/friendDB" method="POST">
+        <button type="submit">Details of Friends Table</button>
+    </form> 
+</div>
+
+<div class="friends">
+    <% if (typeof resultsF!= "undefined" && resultsF) { %>
+        <h4>Friends' name is listed below</h4>
+        <% resultsF.forEach(userObj => { %>
+            <p><%= userObj.name %> </p>
+        <% }) %>
+       <% } %>  
+</div>
+
+<%- include('partials/footer');%>
+    

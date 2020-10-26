@@ -1,0 +1,32 @@
+<%- include('partials/header'); %>
+
+<div class="container">
+    <% if (typeof message!= "undefined" && message) { %>
+        <h2><%=message%></h2>
+       <% } %>  
+</div>
+<div class="message">
+    <p>Your friendList are:</p>
+    <% friendList.forEach(friendObj => { %>
+        <p><%= friendObj.name %> </p>
+    <% }) %>
+</div>
+
+<div>
+    <h4><%- name %> You can add new friend to the list</h4>
+    <form action="/auth/friends" method="POST">
+        <input type="text" name="name" placeholder="your name" required>
+        <input type="text" name="newfriend" placeholder="New Friend" required autofocus>
+        <button class="btn" type="submit">AddNewFriend</button>
+    </form>
+</div>
+
+<div>
+    <form action="/auth/logout" method="POST">
+        <button type="submit">Logout</button>
+    </form>
+   
+</div>
+
+<%- include('partials/footer');%>
+    

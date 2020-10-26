@@ -1,0 +1,18 @@
+<%- include('partials/header'); %>
+
+<div class="container">
+    <h2>Login</h2>
+    <form action="/auth/login" method="POST">
+      <input type="text" name="name" placeholder="name" >
+      <input type="text" name="password" placeholder="password" >
+      <button class="btn" type="submit">Login</button>
+  </form>
+</div>
+<div class="message">
+    <% if (typeof message!= "undefined" && message) { %>
+     <h1><%=message%></h1>
+    <% } %>  
+</div>
+
+<%- include('partials/footer');%>
+    
